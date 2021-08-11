@@ -9,10 +9,8 @@
   var currentNode = head;
 
   while (l1 || l2) {
-
     var numOne = l1 ? l1.val : 0;
     var numTwo  = l2 ? l2.val : 0;
-
     var sum = numOne + numTwo + carry;
     carry = 0;
 
@@ -23,7 +21,6 @@
 
     currentNode.next = new ListNode(sum);
     currentNode = currentNode.next;
-
 
     if (l1) {
       l1 = l1.next;
