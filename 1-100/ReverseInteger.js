@@ -9,5 +9,9 @@ var reverse = function(x) {
   var numArray = x.toString().split('');
   var newString = numArray.reverse().join('');
   var newNum = negativeCheck === true ? parseInt(newString) * -1 : parseInt(newString);
-  return newNum;
+  if (newNum < -1 * (2 ** 31) || newNum > (2 ** 31) ) {
+    return 0
+  } else {
+    return newNum
+  }
 };

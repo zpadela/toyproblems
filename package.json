@@ -1,0 +1,23 @@
+{
+  "name": "toyproblems",
+  "version": "1.0.0",
+  "description": "Leetcode toyproblems",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^27.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zpadela/toyproblems.git"
+  },
+  "author": "Zain Padela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zpadela/toyproblems/issues"
+  },
+  "homepage": "https://github.com/zpadela/toyproblems#readme"
+}
