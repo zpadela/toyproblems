@@ -51,5 +51,3 @@ var intToRoman = function(num) {
   }
   return romanNumeral;
 };
-
-console.log(intToRoman(9));
