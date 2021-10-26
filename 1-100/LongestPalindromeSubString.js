@@ -39,6 +39,6 @@ var expandAroundCenter = function(s, left, right) {
   return [++L, --R]
 
 }
-console.log(longestPalindrome('cccaabaa'));
+
 
 
