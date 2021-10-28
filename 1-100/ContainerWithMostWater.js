@@ -11,10 +11,12 @@ var maxArea = function(height) {
       maxHeight = [height[i], i]
     }
 
-    if (height[i] <= maxHeight[0] && height[i] > viableHeight && i - maxHeight[1] > viableHeight) {
+    if (height[i] <= maxHeight[0] && height[i] > viableHeight) {
       viableHeight = height[i];
-      viableLength = i - maxHeight[1]
     }
+
+    if (i - maxHeight > viableLength)
+
   }
 
   return (viableHeight * viableLength)
