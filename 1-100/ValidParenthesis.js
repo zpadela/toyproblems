@@ -35,4 +35,3 @@ var closer = function(x) {
   }
 }
 
-console.log(isValid('()}'))
