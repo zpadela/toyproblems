@@ -1,34 +1,22 @@
 var longestCommonPrefix = function(strs) {
-
-  if (strs.length === 1) {
-    return strs[0]
-  }
-
-  var longestString = strs[0];
-  var index = 0;
-  for (var i = 0; i < strs.length; i++) {
-    if (strs[i].length > longestString.length) {
-      longestString = strs[i]
-      index = i
+  let prefix = '';
+  let index = 0;
+  if (strs.length) {
+    for (const element of strs[0]) {
+      prefix += element;
+      index++;
+      for (subElement of strs) {
+        if (subElement.slice(0 , index) === prefix) {
+          continue;
+        } else {
+          return prefix.substring(0, prefix.length - 1)
+        }
+      }
     }
   }
+  return prefix;
+};
 
-  var string = strs.splice(index, 1)[0]
-  var testString = '';
-  var j = 0;
-  var result = '';
+console.log(longestCommonPrefix(["flower","flow","flight"]))
 
-  while (j < string.length && strs.every(element => { return element.substring(0, j) === testString})){
-    testString+= string[j];
-    j++
-  }
-
-
-  return testString.slice(0, -1);
-
-}
-
-
-console.log(longestCommonPrefix(["a", ]))
-
-
+console.log(longestCommonPrefix(["dog","racecar","car"]))
