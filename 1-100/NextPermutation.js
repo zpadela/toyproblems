@@ -1,28 +1,42 @@
 var nextPermutation = function(nums) {
-  var i = nums.length - 1;
-  while (nums[i] < nums[i-1] && i > 0) {
-    i--
+  let pointer = nums.length - 1;
+  let nextPointer = pointer - 1;
+  while (nums[nextPointer] >= nums[pointer]) {
+    pointer--;
+    nextPointer--;
+    if (nextPointer === -1) {
+      return reverseInputs(nums, 0)
+    }
   }
-
-  var j = nums.length - 1;
-  while (nums[i-1] > nums[j] && j > i) {
-    j--
+  while (nums[nextPointer] < nums[pointer]) {
+    pointer++
   }
-
-  var container = nums[i - 1];
-  nums.splice(i - 1, 1, nums[j]);
-  nums.splice(j, 1, container)
-
-  var breakpoint = nums.splice(i)
-  breakpoint.reverse();
-  nums.splice(nums.length - 1, 0, ...breakpoint);
-
-  console.log(nums)
-
+  pointer--
+  swapInputs(nums, nextPointer, pointer);
+  nextPointer++
+  reverseInputs(nums, nextPointer);
+  return nums;
 };
 
-console.log(nextPermutation([1,5,8,4,7,6,5,3,1]) + ' EXPECT 132')
 
-console.log(nextPermutation([1,3,2]) + ' EXPECT 213')
+var swapInputs = function(array, i1, i2) {
+  let temp = array[i1];
+  array[i1] = array[i2];
+  array[i2] = temp;
+  return array;
+}
 
-console.log(nextPermutation([1,1,5]) + ' EXPECT 151')
+var reverseInputs = function(array, startIndex) {
+  let endIndex = array.length - 1;
+  while (startIndex < endIndex) {
+    swapInputs(array, startIndex, endIndex)
+    startIndex++
+    endIndex--
+  }
+  return array
+}
+
+console.log(nextPermutation([5,1,1]))
+
+543216
+612345
